@@ -3,13 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Yekaterina Pavlenko" />
     <title>Lab#1 - ex1, ex2</title>
-    <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
     <div id="grade"></div>
-    <div id="gradeByWords"></div>
-    <script src="./task1.js" type="module"></script>
-    <script src="./task2.js" type="module"></script>
+    <script>
+      let grade, finalGrade, message;
+      grade = parseInt(grade);
+      grade = prompt("Пожалуйста, введите оценку по 100 бальной шкале.");
+      if (isNaN(grade)) {
+        document.getElementById("grade").innerHTML =
+          "Пожалуйста, введите число";
+      } else if (grade > 100) {
+        finalGrade = "Значение оценки не может быть больше 100 баллов.";
+      } else if (grade >= 80) {
+        finalGrade = "A";
+      } else if (grade >= 70) {
+        finalGrade = "B";
+      } else if (grade >= 60) {
+        finalGrade = "C";
+      } else if (grade >= 50) {
+        finalGrade = "D";
+      } else if (grade >= 0) {
+        finalGrade = "F";
+      } else if (grade < 0) {
+        finalGrade = "Значение оценки не может быть меньше 0 баллов.";
+      }
+      document.write(finalGrade);
+      switch (finalGrade) {
+        case "A":
+          message = " и у Вас отличная уcпеваемость!";
+          break;
+        case "B":
+          message = " и у Вас хорошая уcпеваемость!";
+          break;
+        case "C":
+          message = " и у Вас удовлетворительная уcпеваемость!";
+          break;
+        case "D":
+          message =
+            " и у Вас так себе уcпеваемость, подучите предмет и приходите пересдавать лабораторку!";
+          break;
+        case "F":
+          message =
+            " и Вам прийдется  ооочень постараться, чтоб пересдать лабораторку!";
+          break;
+        default:
+          message = "Введите корректную оценку";
+      }
+      document.write(message);
+    </script>
   </body>
 </html>
